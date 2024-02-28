@@ -53,7 +53,7 @@ function App() {
     let newList = new Map(listData);
     newList.delete(name);
     setListData(newList);
-    if(listData.has('default')){
+    if(newList.has('default')){
       setCurrentList('default');
     }else {
       setCurrentList('');
@@ -63,6 +63,7 @@ function App() {
   function buildList(name: String) {
     let newList = new Map(listData);
     newList.set(name, new Array<TaskData>());
+    setCurrentList(name);
     setListData(newList);
   }
 
